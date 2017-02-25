@@ -102,7 +102,14 @@ enum _EndLineCode { endl };
 inline Print &operator <<(Print &obj, _EndLineCode arg) 
 { obj.println(); return obj; }
 
-inline Print &operator <<(Print &obj, const long long arg)
-{ obj.write(arg); return obj; } 
+inline Print &operator <<(Print &obj, const long long arg) {
+  char buffer[100];
+  sprintf(buffer, "%0ld", arg / 1000000L);
+  obj.write(buffer);
+  sprintf(buffer, "%0ld", arg % 1000000L);
+  obj.write(buffer);
+	
+  return obj;
+}
 
 #endif
