@@ -102,7 +102,7 @@ enum _EndLineCode { endl };
 inline Print &operator <<(Print &obj, _EndLineCode arg) 
 { obj.println(); return obj; }
 
-inline Print &operator <<(Print &obj, const uint64_t arg)
+inline Print &operator <<(Print &obj, const long long arg)
 { obj.write(arg); return obj; } 
 
 #endif
